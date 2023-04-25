@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title></title>
+</head>
+<body  style = "
+width: 850px;
+padding-left: 200px;
+padding-right: 200px;
+padding-top : 100px;
+padding-bottom : 100px;
+">
+<style>
+body{
+    text-align : center;
+}
+table,th,td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+ 
+ 
+ td{
+        width: 150px;
+        text-align: center;
+        padding: 5px;
+        
+      }
+ table{
+    
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    margin-bottom: 20px;
+ }
+</style>
+<table>
+  <thead>
+    <tr>
+        <th>id</th>
+        <th>username</th>
+        <th>password</th>
+        <th>xss_attack_username</th>
+        <th>xss_attack_password</th>
+        <th>MAC_Address</th>
+        <th>status</th>
+        <th>Time_stamp</th>
+    </tr>
+    </thead>    
+    <tbody>
+     {% for row in data %}    
+            <tr>
+                <td>{{row[0]}}</td>
+                <td>{{row[1]}}</td>
+                <td>{{row[2]}}</td>
+                <td>{{row[3]}}</td>
+                <td>{{row[4]}}</td>
+                <td>{{row[5]}}</td>
+                <td>{{row[6]}}</td>
+                <td>{{row[7]}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<!-- Add a link to download the table as a CSV file -->
+<a href="{{ url_for('download_csv') }}" download><button class=grey style="height:75px;width:150px"> Download CSV</button></a>
+
+</body>
+</html>
